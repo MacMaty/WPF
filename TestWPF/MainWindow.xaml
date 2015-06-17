@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <ComboBox x:Name="cb_Etablissement" HorizontalAlignment="Left" Margin="171,119,0,0" VerticalAlignment="Top" Width="181"/>
+        <ComboBox x:Name="cb_Etablissement" Margin="168,140,168,148"/>
+        <Button x:Name="btn_valider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="219,188,0,0" Click="btn_valider_Click"/>
 
     </Grid>
 </Window>

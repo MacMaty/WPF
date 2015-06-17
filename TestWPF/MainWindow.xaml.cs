@@ -38,5 +38,11 @@ namespace TestWPF
             cb_Etablissement.DisplayMemberPath = "r001_nom";
             
         }
+
+        private void btn_valider_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow m = new MainWindow();
+            m.Show();
+        }
     }
 }
