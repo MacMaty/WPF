@@ -1,0 +1,2314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="AjouterEleve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_leleve" type="tns:Eleve" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Eleve">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_Eleve" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="FK_id_Titre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FK_id_Etablissement" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="r001_nom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r002_prenom1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r003_prenom2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r004_prenom3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r005_nomNaissance" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r006_dateNaissance" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="r007_lieuNaissance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r008_departementNaissance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r009_paysNaissance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r010_nationalite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r016_telephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r017_mobile" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r019_dateCreation" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="r020_dateModification" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="r021_courriel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nom_Prenom" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AjouterEleveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AjouterEleveResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterAdresse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_Adresse" type="tns:Adresse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Adresse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_Adresse" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FK_id_Eleve" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="r011_nom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r002_rue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r003_complement" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r004_cp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r005_ville" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r007_representant" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="r008_telephone" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r006_payeur" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="r009_mobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r010_courriel" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AjouterAdresseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AjouterGroupePermis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="l_groupePermis" type="tns:GroupePermis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GroupePermis">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_GroupePermis" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="delete" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="r001_nom" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AjouterGroupePermisResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererEtablissement">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererEtablissementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererEtablissementResult" type="tns:ArrayOfEtablissement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEtablissement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Etablissement" nillable="true" type="tns:Etablissement" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Etablissement">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_Etablissement" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="r001_nom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r002_rue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r003_cp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r004_ville" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r005_mel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r006_telephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r007_fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r008_codeAPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r009_numeroSIREN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r010_numeroIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r011_registreCommerce" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r013_formeJuridiqueCapital" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r014_dureeLecon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r015_numeroTvaIntra" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r016_dateValiditeAgrement" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecupererEleveParEtablissement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="p_id_Etablissement" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererEleveParEtablissementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererEleveParEtablissementResult" type="tns:ArrayOfEleve" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEleve">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Eleve" nillable="true" type="tns:Eleve" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecupererPrestationParEtablissement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_Etablissement" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererPrestationParEtablissementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererPrestationParEtablissementResult" type="tns:ArrayOfPrestation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPrestation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Prestation" nillable="true" type="tns:Prestation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Prestation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_Prestation" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FK_id_GroupePermis" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FK_id_TypePrestation" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FK_id_TVA" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="r001_nom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r002_duree" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r003_prix" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="nom_GroupePermis" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nom_TypePrestation" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecupererGroupePermis">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererGroupePermisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererGroupePermisResult" type="tns:ArrayOfGroupePermis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGroupePermis">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GroupePermis" nillable="true" type="tns:GroupePermis" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecupererCategoriePermis">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererCategoriePermisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererCategoriePermisResult" type="tns:ArrayOfCategoriePermis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategoriePermis">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CategoriePermis" nillable="true" type="tns:CategoriePermis" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CategoriePermis">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_CategoriePermis" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FK_id_GroupePermis" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="delete" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="r001_nom" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecupererTypePrestation">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererTypePrestationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererTypePrestationResult" type="tns:ArrayOfTypePrestation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTypePrestation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TypePrestation" nillable="true" type="tns:TypePrestation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TypePrestation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_TypePrestation" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="delete" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="r001_nom" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r002_plannifiable" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecupererTitre">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererTitreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererTitreResult" type="tns:ArrayOfTitre" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTitre">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Titre" nillable="true" type="tns:Titre" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Titre">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="r001_libelle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="id_Titre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecupererUtilisateurParEtablissement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_etablissement" type="tns:Etablissement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererUtilisateurParEtablissementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererUtilisateurParEtablissementResult" type="tns:ArrayOfUtilisateur" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUtilisateur">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Utilisateur" nillable="true" type="tns:Utilisateur" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Utilisateur">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_Utilisateur" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="r001_nom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r002_motDePasse" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r003_niveau" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecupererHistoriqueParUtilisateur">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_utilisateur" type="tns:Utilisateur" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererHistoriqueParUtilisateurResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererHistoriqueParUtilisateurResult" type="tns:ArrayOfHistorique" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHistorique">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Historique" nillable="true" type="tns:Historique" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Historique">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_Historique" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FK_id_Utilisateur" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="r001_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r002_information" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r003_date" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AjouterCategoriePermis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="l_categoriePermis" type="tns:CategoriePermis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterCategoriePermisResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AjouterTypePrestation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="l_typePrestation" type="tns:TypePrestation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterTypePrestationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AjouterTitre">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_titre" type="tns:Titre" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterTitreResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererPermisParEtablissement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_etablissement" type="tns:Etablissement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererPermisParEtablissementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererPermisParEtablissementResult" type="tns:ArrayOfPermis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPermis">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Permis" nillable="true" type="tns:Permis" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Permis">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_Permis" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FK_id_CategoriePermis" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FK_id_GroupePermis" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="r001_nom" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecupererCategoriePermisParGroupePermis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_gp" type="tns:GroupePermis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererCategoriePermisParGroupePermisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererCategoriePermisParGroupePermisResult" type="tns:ArrayOfCategoriePermis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterPermis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_permis" type="tns:Permis" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_etablissement" type="tns:Etablissement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterPermisResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererTVA">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererTVAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererTVAResult" type="tns:ArrayOfTva" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTva">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tva" nillable="true" type="tns:Tva" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tva">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_Tva" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="delete" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="r001_taux" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AjouterTVA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tva" type="tns:Tva" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterTVAResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AjouterPrestation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_prestation" type="tns:Prestation" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_etablissement" type="tns:Etablissement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterPrestationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AjouterEtablissement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_etablissement" type="tns:Etablissement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterEtablissementResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererRendezVousParPrestation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prestation" type="tns:Prestation" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateDebut" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererRendezVousParPrestationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererRendezVousParPrestationResult" type="tns:ArrayOfRendezVous" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRendezVous">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RendezVous" nillable="true" type="tns:RendezVous" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RendezVous">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_RendezVous" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FK_id_Eleve" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FK_id_Moniteur" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FK_id_Prestation" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="r001_nom" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r002_dateDebut" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="r003_dateFin" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="r004_note" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="delete" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecupererMoniteur">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererMoniteurResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererMoniteurResult" type="tns:ArrayOfMoniteur" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMoniteur">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Moniteur" nillable="true" type="tns:Moniteur" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Moniteur">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_Moniteur" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="FK_id_Titre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r001_nom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r002_prenom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r020_prenom2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r021_prenom3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r003_numeroAgreement" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r004_rue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r044_complement" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r005_cp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r006_ville" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r007_telephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r008_mobile" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r009_dateNaissance" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="r010_lieuNaissance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r011_departementNaissance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r012_paysNaissance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r013_nationalite" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r019_dateCreation" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="r020_dateModif" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="r021_courriel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nom_Prenom" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecupererRendezVousParMoniteur">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="moniteur" type="tns:Moniteur" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateDebut" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererRendezVousParMoniteurResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererRendezVousParMoniteurResult" type="tns:ArrayOfRendezVous" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererRendezVousParDateDebut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dateDebut" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererRendezVousParDateDebutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererRendezVousParDateDebutResult" type="tns:ArrayOfRendezVous" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererRendezVousNonAttribue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dateDebut" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="eleve" type="tns:Eleve" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererRendezVousNonAttribueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererRendezVousNonAttribueResult" type="tns:ArrayOfRendezVous" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupprimerTypePrestation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_typePrestation" type="tns:TypePrestation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupprimerTypePrestationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SupprimerCategoriePermis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cp" type="tns:CategoriePermis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupprimerCategoriePermisResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SupprimerGroupePermis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gp" type="tns:GroupePermis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupprimerGroupePermisResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererAdresseParEleve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="p" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererAdresseParEleveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererAdresseParEleveResult" type="tns:ArrayOfAdresse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAdresse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Adresse" nillable="true" type="tns:Adresse" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModifierAdresse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="l_adresse" type="tns:Adresse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifierAdresseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ModifierEleve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_eleveSelect" type="tns:Eleve" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifierEleveResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ModifierMoniteur">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_moniteur" type="tns:Moniteur" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifierMoniteurResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AjouterMoniteur">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_moniteur" type="tns:Moniteur" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterMoniteurResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererCategoriePermisParEleve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="p_idEleve" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererCategoriePermisParEleveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererCategoriePermisParEleveResult" type="tns:ArrayOfCategoriePermis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignerFormationEleve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_laCategoriePermis" type="tns:CategoriePermis" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_eleve" type="tns:Eleve" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignerFormationEleveResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupCategoriePermisParGroupePermis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_gp" type="tns:GroupePermis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupCategoriePermisParGroupePermisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupCategoriePermisParGroupePermisResult" type="tns:ArrayOfCategoriePermis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterRendezVous">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_rendezvous" type="tns:RendezVous" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterRendezVousResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererOperationParEleve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_e" type="tns:Eleve" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererOperationParEleveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererOperationParEleveResult" type="tns:ArrayOfOperation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOperation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Operation" nillable="true" type="tns:Operation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Operation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_Operation" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="id_FK_Eleve" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="delete" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="r011_dateOperation" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="r001_nom" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r002_typeOperation" type="s1:char" />
+          <s:element minOccurs="1" maxOccurs="1" name="r003_quantite" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="r004_remise" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="r005_debit" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="r006_credit" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="r007_numeroFacture" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r008_numeroAvoir" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="r009_numeroRecu" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r010_dateReglement" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="r012_societe" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="r013_a_e_g" nillable="true" type="s1:char" />
+          <s:element minOccurs="1" maxOccurs="1" name="r015_compabilite" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AjouterOperation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_operation" type="tns:Operation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterOperationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RecupererPrestationNonPlanniafiable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_etablissement" type="tns:Etablissement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecupererPrestationNonPlanniafiableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecupererPrestationNonPlanniafiableResult" type="tns:ArrayOfPrestation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifierEtablissement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_etablissement" type="tns:Etablissement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifierEtablissementResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SupprimerPermis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_lePermis" type="tns:Permis" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupprimerPermisResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SupprimerPrestation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_laPrestation" type="tns:Prestation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupprimerPrestationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SupprimerRendezVous">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_rendezvous" type="tns:RendezVous" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupprimerRendezVousResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ModifierRendezVous">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_rendezVous" type="tns:RendezVous" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifierRendezVousResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SupprimerPermisParEtablissement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="p_id_Permis" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="p_id_Etablissement" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupprimerPermisParEtablissementResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SupprimerTitre">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_id_Titre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupprimerTitreResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="VerifierUtilisateur">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="p_id_Etablissement" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_nom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_mdp" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifierUtilisateurResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifierUtilisateurResult" type="tns:Utilisateur" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterHistorique">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="p_id_Utilisateur" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_information" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjouterHistoriqueResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AjouterEleveSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterEleve" />
+  </wsdl:message>
+  <wsdl:message name="AjouterEleveSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterEleveResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterAdresseSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterAdresse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterAdresseSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterAdresseResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterGroupePermisSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterGroupePermis" />
+  </wsdl:message>
+  <wsdl:message name="AjouterGroupePermisSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterGroupePermisResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererEtablissementSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererEtablissement" />
+  </wsdl:message>
+  <wsdl:message name="RecupererEtablissementSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererEtablissementResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererEleveParEtablissementSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererEleveParEtablissement" />
+  </wsdl:message>
+  <wsdl:message name="RecupererEleveParEtablissementSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererEleveParEtablissementResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererPrestationParEtablissementSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererPrestationParEtablissement" />
+  </wsdl:message>
+  <wsdl:message name="RecupererPrestationParEtablissementSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererPrestationParEtablissementResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererGroupePermisSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererGroupePermis" />
+  </wsdl:message>
+  <wsdl:message name="RecupererGroupePermisSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererGroupePermisResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererCategoriePermisSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererCategoriePermis" />
+  </wsdl:message>
+  <wsdl:message name="RecupererCategoriePermisSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererCategoriePermisResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererTypePrestationSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererTypePrestation" />
+  </wsdl:message>
+  <wsdl:message name="RecupererTypePrestationSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererTypePrestationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererTitreSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererTitre" />
+  </wsdl:message>
+  <wsdl:message name="RecupererTitreSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererTitreResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererUtilisateurParEtablissementSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererUtilisateurParEtablissement" />
+  </wsdl:message>
+  <wsdl:message name="RecupererUtilisateurParEtablissementSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererUtilisateurParEtablissementResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererHistoriqueParUtilisateurSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererHistoriqueParUtilisateur" />
+  </wsdl:message>
+  <wsdl:message name="RecupererHistoriqueParUtilisateurSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererHistoriqueParUtilisateurResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterCategoriePermisSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterCategoriePermis" />
+  </wsdl:message>
+  <wsdl:message name="AjouterCategoriePermisSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterCategoriePermisResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterTypePrestationSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterTypePrestation" />
+  </wsdl:message>
+  <wsdl:message name="AjouterTypePrestationSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterTypePrestationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterTitreSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterTitre" />
+  </wsdl:message>
+  <wsdl:message name="AjouterTitreSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterTitreResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererPermisParEtablissementSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererPermisParEtablissement" />
+  </wsdl:message>
+  <wsdl:message name="RecupererPermisParEtablissementSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererPermisParEtablissementResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererCategoriePermisParGroupePermisSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererCategoriePermisParGroupePermis" />
+  </wsdl:message>
+  <wsdl:message name="RecupererCategoriePermisParGroupePermisSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererCategoriePermisParGroupePermisResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterPermisSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterPermis" />
+  </wsdl:message>
+  <wsdl:message name="AjouterPermisSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterPermisResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererTVASoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererTVA" />
+  </wsdl:message>
+  <wsdl:message name="RecupererTVASoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererTVAResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterTVASoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterTVA" />
+  </wsdl:message>
+  <wsdl:message name="AjouterTVASoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterTVAResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterPrestationSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterPrestation" />
+  </wsdl:message>
+  <wsdl:message name="AjouterPrestationSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterPrestationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterEtablissementSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterEtablissement" />
+  </wsdl:message>
+  <wsdl:message name="AjouterEtablissementSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterEtablissementResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererRendezVousParPrestationSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererRendezVousParPrestation" />
+  </wsdl:message>
+  <wsdl:message name="RecupererRendezVousParPrestationSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererRendezVousParPrestationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererMoniteurSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererMoniteur" />
+  </wsdl:message>
+  <wsdl:message name="RecupererMoniteurSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererMoniteurResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererRendezVousParMoniteurSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererRendezVousParMoniteur" />
+  </wsdl:message>
+  <wsdl:message name="RecupererRendezVousParMoniteurSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererRendezVousParMoniteurResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererRendezVousParDateDebutSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererRendezVousParDateDebut" />
+  </wsdl:message>
+  <wsdl:message name="RecupererRendezVousParDateDebutSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererRendezVousParDateDebutResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererRendezVousNonAttribueSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererRendezVousNonAttribue" />
+  </wsdl:message>
+  <wsdl:message name="RecupererRendezVousNonAttribueSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererRendezVousNonAttribueResponse" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerTypePrestationSoapIn">
+    <wsdl:part name="parameters" element="tns:SupprimerTypePrestation" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerTypePrestationSoapOut">
+    <wsdl:part name="parameters" element="tns:SupprimerTypePrestationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerCategoriePermisSoapIn">
+    <wsdl:part name="parameters" element="tns:SupprimerCategoriePermis" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerCategoriePermisSoapOut">
+    <wsdl:part name="parameters" element="tns:SupprimerCategoriePermisResponse" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerGroupePermisSoapIn">
+    <wsdl:part name="parameters" element="tns:SupprimerGroupePermis" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerGroupePermisSoapOut">
+    <wsdl:part name="parameters" element="tns:SupprimerGroupePermisResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererAdresseParEleveSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererAdresseParEleve" />
+  </wsdl:message>
+  <wsdl:message name="RecupererAdresseParEleveSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererAdresseParEleveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifierAdresseSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifierAdresse" />
+  </wsdl:message>
+  <wsdl:message name="ModifierAdresseSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifierAdresseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifierEleveSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifierEleve" />
+  </wsdl:message>
+  <wsdl:message name="ModifierEleveSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifierEleveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifierMoniteurSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifierMoniteur" />
+  </wsdl:message>
+  <wsdl:message name="ModifierMoniteurSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifierMoniteurResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterMoniteurSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterMoniteur" />
+  </wsdl:message>
+  <wsdl:message name="AjouterMoniteurSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterMoniteurResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererCategoriePermisParEleveSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererCategoriePermisParEleve" />
+  </wsdl:message>
+  <wsdl:message name="RecupererCategoriePermisParEleveSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererCategoriePermisParEleveResponse" />
+  </wsdl:message>
+  <wsdl:message name="AssignerFormationEleveSoapIn">
+    <wsdl:part name="parameters" element="tns:AssignerFormationEleve" />
+  </wsdl:message>
+  <wsdl:message name="AssignerFormationEleveSoapOut">
+    <wsdl:part name="parameters" element="tns:AssignerFormationEleveResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupCategoriePermisParGroupePermisSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupCategoriePermisParGroupePermis" />
+  </wsdl:message>
+  <wsdl:message name="RecupCategoriePermisParGroupePermisSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupCategoriePermisParGroupePermisResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterRendezVousSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterRendezVous" />
+  </wsdl:message>
+  <wsdl:message name="AjouterRendezVousSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterRendezVousResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererOperationParEleveSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererOperationParEleve" />
+  </wsdl:message>
+  <wsdl:message name="RecupererOperationParEleveSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererOperationParEleveResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterOperationSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterOperation" />
+  </wsdl:message>
+  <wsdl:message name="AjouterOperationSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterOperationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecupererPrestationNonPlanniafiableSoapIn">
+    <wsdl:part name="parameters" element="tns:RecupererPrestationNonPlanniafiable" />
+  </wsdl:message>
+  <wsdl:message name="RecupererPrestationNonPlanniafiableSoapOut">
+    <wsdl:part name="parameters" element="tns:RecupererPrestationNonPlanniafiableResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifierEtablissementSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifierEtablissement" />
+  </wsdl:message>
+  <wsdl:message name="ModifierEtablissementSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifierEtablissementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerPermisSoapIn">
+    <wsdl:part name="parameters" element="tns:SupprimerPermis" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerPermisSoapOut">
+    <wsdl:part name="parameters" element="tns:SupprimerPermisResponse" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerPrestationSoapIn">
+    <wsdl:part name="parameters" element="tns:SupprimerPrestation" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerPrestationSoapOut">
+    <wsdl:part name="parameters" element="tns:SupprimerPrestationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerRendezVousSoapIn">
+    <wsdl:part name="parameters" element="tns:SupprimerRendezVous" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerRendezVousSoapOut">
+    <wsdl:part name="parameters" element="tns:SupprimerRendezVousResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifierRendezVousSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifierRendezVous" />
+  </wsdl:message>
+  <wsdl:message name="ModifierRendezVousSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifierRendezVousResponse" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerPermisParEtablissementSoapIn">
+    <wsdl:part name="parameters" element="tns:SupprimerPermisParEtablissement" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerPermisParEtablissementSoapOut">
+    <wsdl:part name="parameters" element="tns:SupprimerPermisParEtablissementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerTitreSoapIn">
+    <wsdl:part name="parameters" element="tns:SupprimerTitre" />
+  </wsdl:message>
+  <wsdl:message name="SupprimerTitreSoapOut">
+    <wsdl:part name="parameters" element="tns:SupprimerTitreResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifierUtilisateurSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifierUtilisateur" />
+  </wsdl:message>
+  <wsdl:message name="VerifierUtilisateurSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifierUtilisateurResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjouterHistoriqueSoapIn">
+    <wsdl:part name="parameters" element="tns:AjouterHistorique" />
+  </wsdl:message>
+  <wsdl:message name="AjouterHistoriqueSoapOut">
+    <wsdl:part name="parameters" element="tns:AjouterHistoriqueResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MyGstConduiteWSSoap">
+    <wsdl:operation name="AjouterEleve">
+      <wsdl:input message="tns:AjouterEleveSoapIn" />
+      <wsdl:output message="tns:AjouterEleveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterAdresse">
+      <wsdl:input message="tns:AjouterAdresseSoapIn" />
+      <wsdl:output message="tns:AjouterAdresseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterGroupePermis">
+      <wsdl:input message="tns:AjouterGroupePermisSoapIn" />
+      <wsdl:output message="tns:AjouterGroupePermisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererEtablissement">
+      <wsdl:input message="tns:RecupererEtablissementSoapIn" />
+      <wsdl:output message="tns:RecupererEtablissementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererEleveParEtablissement">
+      <wsdl:input message="tns:RecupererEleveParEtablissementSoapIn" />
+      <wsdl:output message="tns:RecupererEleveParEtablissementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererPrestationParEtablissement">
+      <wsdl:input message="tns:RecupererPrestationParEtablissementSoapIn" />
+      <wsdl:output message="tns:RecupererPrestationParEtablissementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererGroupePermis">
+      <wsdl:input message="tns:RecupererGroupePermisSoapIn" />
+      <wsdl:output message="tns:RecupererGroupePermisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererCategoriePermis">
+      <wsdl:input message="tns:RecupererCategoriePermisSoapIn" />
+      <wsdl:output message="tns:RecupererCategoriePermisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererTypePrestation">
+      <wsdl:input message="tns:RecupererTypePrestationSoapIn" />
+      <wsdl:output message="tns:RecupererTypePrestationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererTitre">
+      <wsdl:input message="tns:RecupererTitreSoapIn" />
+      <wsdl:output message="tns:RecupererTitreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererUtilisateurParEtablissement">
+      <wsdl:input message="tns:RecupererUtilisateurParEtablissementSoapIn" />
+      <wsdl:output message="tns:RecupererUtilisateurParEtablissementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererHistoriqueParUtilisateur">
+      <wsdl:input message="tns:RecupererHistoriqueParUtilisateurSoapIn" />
+      <wsdl:output message="tns:RecupererHistoriqueParUtilisateurSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterCategoriePermis">
+      <wsdl:input message="tns:AjouterCategoriePermisSoapIn" />
+      <wsdl:output message="tns:AjouterCategoriePermisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterTypePrestation">
+      <wsdl:input message="tns:AjouterTypePrestationSoapIn" />
+      <wsdl:output message="tns:AjouterTypePrestationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterTitre">
+      <wsdl:input message="tns:AjouterTitreSoapIn" />
+      <wsdl:output message="tns:AjouterTitreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererPermisParEtablissement">
+      <wsdl:input message="tns:RecupererPermisParEtablissementSoapIn" />
+      <wsdl:output message="tns:RecupererPermisParEtablissementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererCategoriePermisParGroupePermis">
+      <wsdl:input message="tns:RecupererCategoriePermisParGroupePermisSoapIn" />
+      <wsdl:output message="tns:RecupererCategoriePermisParGroupePermisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterPermis">
+      <wsdl:input message="tns:AjouterPermisSoapIn" />
+      <wsdl:output message="tns:AjouterPermisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererTVA">
+      <wsdl:input message="tns:RecupererTVASoapIn" />
+      <wsdl:output message="tns:RecupererTVASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterTVA">
+      <wsdl:input message="tns:AjouterTVASoapIn" />
+      <wsdl:output message="tns:AjouterTVASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterPrestation">
+      <wsdl:input message="tns:AjouterPrestationSoapIn" />
+      <wsdl:output message="tns:AjouterPrestationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterEtablissement">
+      <wsdl:input message="tns:AjouterEtablissementSoapIn" />
+      <wsdl:output message="tns:AjouterEtablissementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererRendezVousParPrestation">
+      <wsdl:input message="tns:RecupererRendezVousParPrestationSoapIn" />
+      <wsdl:output message="tns:RecupererRendezVousParPrestationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererMoniteur">
+      <wsdl:input message="tns:RecupererMoniteurSoapIn" />
+      <wsdl:output message="tns:RecupererMoniteurSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererRendezVousParMoniteur">
+      <wsdl:input message="tns:RecupererRendezVousParMoniteurSoapIn" />
+      <wsdl:output message="tns:RecupererRendezVousParMoniteurSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererRendezVousParDateDebut">
+      <wsdl:input message="tns:RecupererRendezVousParDateDebutSoapIn" />
+      <wsdl:output message="tns:RecupererRendezVousParDateDebutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererRendezVousNonAttribue">
+      <wsdl:input message="tns:RecupererRendezVousNonAttribueSoapIn" />
+      <wsdl:output message="tns:RecupererRendezVousNonAttribueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerTypePrestation">
+      <wsdl:input message="tns:SupprimerTypePrestationSoapIn" />
+      <wsdl:output message="tns:SupprimerTypePrestationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerCategoriePermis">
+      <wsdl:input message="tns:SupprimerCategoriePermisSoapIn" />
+      <wsdl:output message="tns:SupprimerCategoriePermisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerGroupePermis">
+      <wsdl:input message="tns:SupprimerGroupePermisSoapIn" />
+      <wsdl:output message="tns:SupprimerGroupePermisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererAdresseParEleve">
+      <wsdl:input message="tns:RecupererAdresseParEleveSoapIn" />
+      <wsdl:output message="tns:RecupererAdresseParEleveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifierAdresse">
+      <wsdl:input message="tns:ModifierAdresseSoapIn" />
+      <wsdl:output message="tns:ModifierAdresseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifierEleve">
+      <wsdl:input message="tns:ModifierEleveSoapIn" />
+      <wsdl:output message="tns:ModifierEleveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifierMoniteur">
+      <wsdl:input message="tns:ModifierMoniteurSoapIn" />
+      <wsdl:output message="tns:ModifierMoniteurSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterMoniteur">
+      <wsdl:input message="tns:AjouterMoniteurSoapIn" />
+      <wsdl:output message="tns:AjouterMoniteurSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererCategoriePermisParEleve">
+      <wsdl:input message="tns:RecupererCategoriePermisParEleveSoapIn" />
+      <wsdl:output message="tns:RecupererCategoriePermisParEleveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignerFormationEleve">
+      <wsdl:input message="tns:AssignerFormationEleveSoapIn" />
+      <wsdl:output message="tns:AssignerFormationEleveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupCategoriePermisParGroupePermis">
+      <wsdl:input message="tns:RecupCategoriePermisParGroupePermisSoapIn" />
+      <wsdl:output message="tns:RecupCategoriePermisParGroupePermisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterRendezVous">
+      <wsdl:input message="tns:AjouterRendezVousSoapIn" />
+      <wsdl:output message="tns:AjouterRendezVousSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererOperationParEleve">
+      <wsdl:input message="tns:RecupererOperationParEleveSoapIn" />
+      <wsdl:output message="tns:RecupererOperationParEleveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterOperation">
+      <wsdl:input message="tns:AjouterOperationSoapIn" />
+      <wsdl:output message="tns:AjouterOperationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecupererPrestationNonPlanniafiable">
+      <wsdl:input message="tns:RecupererPrestationNonPlanniafiableSoapIn" />
+      <wsdl:output message="tns:RecupererPrestationNonPlanniafiableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifierEtablissement">
+      <wsdl:input message="tns:ModifierEtablissementSoapIn" />
+      <wsdl:output message="tns:ModifierEtablissementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerPermis">
+      <wsdl:input message="tns:SupprimerPermisSoapIn" />
+      <wsdl:output message="tns:SupprimerPermisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerPrestation">
+      <wsdl:input message="tns:SupprimerPrestationSoapIn" />
+      <wsdl:output message="tns:SupprimerPrestationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerRendezVous">
+      <wsdl:input message="tns:SupprimerRendezVousSoapIn" />
+      <wsdl:output message="tns:SupprimerRendezVousSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifierRendezVous">
+      <wsdl:input message="tns:ModifierRendezVousSoapIn" />
+      <wsdl:output message="tns:ModifierRendezVousSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerPermisParEtablissement">
+      <wsdl:input message="tns:SupprimerPermisParEtablissementSoapIn" />
+      <wsdl:output message="tns:SupprimerPermisParEtablissementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerTitre">
+      <wsdl:input message="tns:SupprimerTitreSoapIn" />
+      <wsdl:output message="tns:SupprimerTitreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifierUtilisateur">
+      <wsdl:input message="tns:VerifierUtilisateurSoapIn" />
+      <wsdl:output message="tns:VerifierUtilisateurSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjouterHistorique">
+      <wsdl:input message="tns:AjouterHistoriqueSoapIn" />
+      <wsdl:output message="tns:AjouterHistoriqueSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MyGstConduiteWSSoap" type="tns:MyGstConduiteWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AjouterEleve">
+      <soap:operation soapAction="http://tempuri.org/AjouterEleve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterAdresse">
+      <soap:operation soapAction="http://tempuri.org/AjouterAdresse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterGroupePermis">
+      <soap:operation soapAction="http://tempuri.org/AjouterGroupePermis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererEtablissement">
+      <soap:operation soapAction="http://tempuri.org/RecupererEtablissement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererEleveParEtablissement">
+      <soap:operation soapAction="http://tempuri.org/RecupererEleveParEtablissement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererPrestationParEtablissement">
+      <soap:operation soapAction="http://tempuri.org/RecupererPrestationParEtablissement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererGroupePermis">
+      <soap:operation soapAction="http://tempuri.org/RecupererGroupePermis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererCategoriePermis">
+      <soap:operation soapAction="http://tempuri.org/RecupererCategoriePermis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererTypePrestation">
+      <soap:operation soapAction="http://tempuri.org/RecupererTypePrestation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererTitre">
+      <soap:operation soapAction="http://tempuri.org/RecupererTitre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererUtilisateurParEtablissement">
+      <soap:operation soapAction="http://tempuri.org/RecupererUtilisateurParEtablissement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererHistoriqueParUtilisateur">
+      <soap:operation soapAction="http://tempuri.org/RecupererHistoriqueParUtilisateur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterCategoriePermis">
+      <soap:operation soapAction="http://tempuri.org/AjouterCategoriePermis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterTypePrestation">
+      <soap:operation soapAction="http://tempuri.org/AjouterTypePrestation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterTitre">
+      <soap:operation soapAction="http://tempuri.org/AjouterTitre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererPermisParEtablissement">
+      <soap:operation soapAction="http://tempuri.org/RecupererPermisParEtablissement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererCategoriePermisParGroupePermis">
+      <soap:operation soapAction="http://tempuri.org/RecupererCategoriePermisParGroupePermis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterPermis">
+      <soap:operation soapAction="http://tempuri.org/AjouterPermis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererTVA">
+      <soap:operation soapAction="http://tempuri.org/RecupererTVA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterTVA">
+      <soap:operation soapAction="http://tempuri.org/AjouterTVA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterPrestation">
+      <soap:operation soapAction="http://tempuri.org/AjouterPrestation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterEtablissement">
+      <soap:operation soapAction="http://tempuri.org/AjouterEtablissement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererRendezVousParPrestation">
+      <soap:operation soapAction="http://tempuri.org/RecupererRendezVousParPrestation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererMoniteur">
+      <soap:operation soapAction="http://tempuri.org/RecupererMoniteur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererRendezVousParMoniteur">
+      <soap:operation soapAction="http://tempuri.org/RecupererRendezVousParMoniteur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererRendezVousParDateDebut">
+      <soap:operation soapAction="http://tempuri.org/RecupererRendezVousParDateDebut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererRendezVousNonAttribue">
+      <soap:operation soapAction="http://tempuri.org/RecupererRendezVousNonAttribue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerTypePrestation">
+      <soap:operation soapAction="http://tempuri.org/SupprimerTypePrestation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerCategoriePermis">
+      <soap:operation soapAction="http://tempuri.org/SupprimerCategoriePermis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerGroupePermis">
+      <soap:operation soapAction="http://tempuri.org/SupprimerGroupePermis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererAdresseParEleve">
+      <soap:operation soapAction="http://tempuri.org/RecupererAdresseParEleve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifierAdresse">
+      <soap:operation soapAction="http://tempuri.org/ModifierAdresse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifierEleve">
+      <soap:operation soapAction="http://tempuri.org/ModifierEleve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifierMoniteur">
+      <soap:operation soapAction="http://tempuri.org/ModifierMoniteur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterMoniteur">
+      <soap:operation soapAction="http://tempuri.org/AjouterMoniteur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererCategoriePermisParEleve">
+      <soap:operation soapAction="http://tempuri.org/RecupererCategoriePermisParEleve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignerFormationEleve">
+      <soap:operation soapAction="http://tempuri.org/AssignerFormationEleve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupCategoriePermisParGroupePermis">
+      <soap:operation soapAction="http://tempuri.org/RecupCategoriePermisParGroupePermis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterRendezVous">
+      <soap:operation soapAction="http://tempuri.org/AjouterRendezVous" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererOperationParEleve">
+      <soap:operation soapAction="http://tempuri.org/RecupererOperationParEleve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterOperation">
+      <soap:operation soapAction="http://tempuri.org/AjouterOperation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererPrestationNonPlanniafiable">
+      <soap:operation soapAction="http://tempuri.org/RecupererPrestationNonPlanniafiable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifierEtablissement">
+      <soap:operation soapAction="http://tempuri.org/ModifierEtablissement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerPermis">
+      <soap:operation soapAction="http://tempuri.org/SupprimerPermis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerPrestation">
+      <soap:operation soapAction="http://tempuri.org/SupprimerPrestation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerRendezVous">
+      <soap:operation soapAction="http://tempuri.org/SupprimerRendezVous" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifierRendezVous">
+      <soap:operation soapAction="http://tempuri.org/ModifierRendezVous" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerPermisParEtablissement">
+      <soap:operation soapAction="http://tempuri.org/SupprimerPermisParEtablissement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerTitre">
+      <soap:operation soapAction="http://tempuri.org/SupprimerTitre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifierUtilisateur">
+      <soap:operation soapAction="http://tempuri.org/VerifierUtilisateur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterHistorique">
+      <soap:operation soapAction="http://tempuri.org/AjouterHistorique" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MyGstConduiteWSSoap12" type="tns:MyGstConduiteWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AjouterEleve">
+      <soap12:operation soapAction="http://tempuri.org/AjouterEleve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterAdresse">
+      <soap12:operation soapAction="http://tempuri.org/AjouterAdresse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterGroupePermis">
+      <soap12:operation soapAction="http://tempuri.org/AjouterGroupePermis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererEtablissement">
+      <soap12:operation soapAction="http://tempuri.org/RecupererEtablissement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererEleveParEtablissement">
+      <soap12:operation soapAction="http://tempuri.org/RecupererEleveParEtablissement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererPrestationParEtablissement">
+      <soap12:operation soapAction="http://tempuri.org/RecupererPrestationParEtablissement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererGroupePermis">
+      <soap12:operation soapAction="http://tempuri.org/RecupererGroupePermis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererCategoriePermis">
+      <soap12:operation soapAction="http://tempuri.org/RecupererCategoriePermis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererTypePrestation">
+      <soap12:operation soapAction="http://tempuri.org/RecupererTypePrestation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererTitre">
+      <soap12:operation soapAction="http://tempuri.org/RecupererTitre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererUtilisateurParEtablissement">
+      <soap12:operation soapAction="http://tempuri.org/RecupererUtilisateurParEtablissement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererHistoriqueParUtilisateur">
+      <soap12:operation soapAction="http://tempuri.org/RecupererHistoriqueParUtilisateur" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterCategoriePermis">
+      <soap12:operation soapAction="http://tempuri.org/AjouterCategoriePermis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterTypePrestation">
+      <soap12:operation soapAction="http://tempuri.org/AjouterTypePrestation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterTitre">
+      <soap12:operation soapAction="http://tempuri.org/AjouterTitre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererPermisParEtablissement">
+      <soap12:operation soapAction="http://tempuri.org/RecupererPermisParEtablissement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererCategoriePermisParGroupePermis">
+      <soap12:operation soapAction="http://tempuri.org/RecupererCategoriePermisParGroupePermis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterPermis">
+      <soap12:operation soapAction="http://tempuri.org/AjouterPermis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererTVA">
+      <soap12:operation soapAction="http://tempuri.org/RecupererTVA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterTVA">
+      <soap12:operation soapAction="http://tempuri.org/AjouterTVA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterPrestation">
+      <soap12:operation soapAction="http://tempuri.org/AjouterPrestation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterEtablissement">
+      <soap12:operation soapAction="http://tempuri.org/AjouterEtablissement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererRendezVousParPrestation">
+      <soap12:operation soapAction="http://tempuri.org/RecupererRendezVousParPrestation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererMoniteur">
+      <soap12:operation soapAction="http://tempuri.org/RecupererMoniteur" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererRendezVousParMoniteur">
+      <soap12:operation soapAction="http://tempuri.org/RecupererRendezVousParMoniteur" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererRendezVousParDateDebut">
+      <soap12:operation soapAction="http://tempuri.org/RecupererRendezVousParDateDebut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererRendezVousNonAttribue">
+      <soap12:operation soapAction="http://tempuri.org/RecupererRendezVousNonAttribue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerTypePrestation">
+      <soap12:operation soapAction="http://tempuri.org/SupprimerTypePrestation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerCategoriePermis">
+      <soap12:operation soapAction="http://tempuri.org/SupprimerCategoriePermis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerGroupePermis">
+      <soap12:operation soapAction="http://tempuri.org/SupprimerGroupePermis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererAdresseParEleve">
+      <soap12:operation soapAction="http://tempuri.org/RecupererAdresseParEleve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifierAdresse">
+      <soap12:operation soapAction="http://tempuri.org/ModifierAdresse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifierEleve">
+      <soap12:operation soapAction="http://tempuri.org/ModifierEleve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifierMoniteur">
+      <soap12:operation soapAction="http://tempuri.org/ModifierMoniteur" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterMoniteur">
+      <soap12:operation soapAction="http://tempuri.org/AjouterMoniteur" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererCategoriePermisParEleve">
+      <soap12:operation soapAction="http://tempuri.org/RecupererCategoriePermisParEleve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignerFormationEleve">
+      <soap12:operation soapAction="http://tempuri.org/AssignerFormationEleve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupCategoriePermisParGroupePermis">
+      <soap12:operation soapAction="http://tempuri.org/RecupCategoriePermisParGroupePermis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterRendezVous">
+      <soap12:operation soapAction="http://tempuri.org/AjouterRendezVous" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererOperationParEleve">
+      <soap12:operation soapAction="http://tempuri.org/RecupererOperationParEleve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterOperation">
+      <soap12:operation soapAction="http://tempuri.org/AjouterOperation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecupererPrestationNonPlanniafiable">
+      <soap12:operation soapAction="http://tempuri.org/RecupererPrestationNonPlanniafiable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifierEtablissement">
+      <soap12:operation soapAction="http://tempuri.org/ModifierEtablissement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerPermis">
+      <soap12:operation soapAction="http://tempuri.org/SupprimerPermis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerPrestation">
+      <soap12:operation soapAction="http://tempuri.org/SupprimerPrestation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerRendezVous">
+      <soap12:operation soapAction="http://tempuri.org/SupprimerRendezVous" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifierRendezVous">
+      <soap12:operation soapAction="http://tempuri.org/ModifierRendezVous" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerPermisParEtablissement">
+      <soap12:operation soapAction="http://tempuri.org/SupprimerPermisParEtablissement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimerTitre">
+      <soap12:operation soapAction="http://tempuri.org/SupprimerTitre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifierUtilisateur">
+      <soap12:operation soapAction="http://tempuri.org/VerifierUtilisateur" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjouterHistorique">
+      <soap12:operation soapAction="http://tempuri.org/AjouterHistorique" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MyGstConduiteWS">
+    <wsdl:port name="MyGstConduiteWSSoap" binding="tns:MyGstConduiteWSSoap">
+      <soap:address location="http://thamieu.fr/MyGstConduite/MyGstConduiteWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MyGstConduiteWSSoap12" binding="tns:MyGstConduiteWSSoap12">
+      <soap12:address location="http://thamieu.fr/MyGstConduite/MyGstConduiteWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
