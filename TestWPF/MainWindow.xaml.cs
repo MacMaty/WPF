@@ -41,7 +41,7 @@ namespace TestWPF
 
         private void btn_valider_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow m = new MainWindow();
+            Creation_Etablissement m = new Creation_Etablissement(_managerWS);
             m.Show();
         }
     }

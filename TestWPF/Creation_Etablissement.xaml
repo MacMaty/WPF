@@ -1,0 +1,97 @@
+﻿<Window x:Class="TestWPF.Creation_Etablissement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Creation_Etablissement" Height="484" Width="703" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />    
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Nom :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox  x:Name="tb_r001_nom" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,2,0,2" Width="193" >
+            <TextBox.Text>
+                <Binding Path="id_Titre">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Adresse :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="tb_r002_rue" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,2,0,2" Width="193" >
+            <TextBox.Text>
+                <Binding Path="r001_libelle">
+                    <Binding.ValidationRules>
+                        <ExceptionValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Margin="2">
+            <TextBox x:Name="tb_r003_cp" Width="50" VerticalAlignment="Stretch" Margin="2,0,2,0" />
+            <TextBox x:Name="tb_r004_ville" Width="142" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+        </StackPanel>
+
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="Courriel :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="tb_r005_mel" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,2,0,2" Width="193" />
+
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="Telephone :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="tb_r006_telephone" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,2,0,2" Width="193" />
+
+        <TextBlock Grid.Column="0" Grid.Row="5" Text="Fax :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="tb_r007_fax" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,2,0,2" Width="193" />
+
+        <TextBlock Grid.Column="0" Grid.Row="6" Text="Code APE :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="tb_r008_codeAPE" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,2,0,2" Width="193" />
+
+        <TextBlock Grid.Column="0" Grid.Row="7" Text="N° de siren :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="tb_r009_numeroSIREN" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,2,0,2" Width="193" />
+
+        <TextBlock Grid.Column="0" Grid.Row="8" Text="N° TVA intracommunautaire :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="tb_r015_numeroTvaIntra" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,2,0,2" Width="193" />
+
+        <TextBlock Grid.Column="0" Grid.Row="10" Text="N° d'agrément :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="tb_r010_numeroIdentification" Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,2,0,2" Width="193" />
+
+        <TextBlock Grid.Column="0" Grid.Row="11" Text="Date validité agrément :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <WindowsFormsHost x:Name="WindowsMTBdateValiditeAgrement" Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left"  VerticalAlignment="Stretch" Margin="5,2,0,2" Height="23" Width="193" />
+
+        <TextBlock Grid.Column="0" Grid.Row="12" Text="Registre du commerce :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="tb_r011_registreCommerce" Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,2,0,2" Width="193" />
+
+        <TextBlock Grid.Column="0" Grid.Row="13" Text="Forme juridique Capital:" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="tb_r013_formeJuridiqueCapital" Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5,2,0,2" Width="193" />
+
+        
+
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="15" Margin="2">
+            <Button Content="Enregistrer" Margin="2" Click="Button_Click"  />
+            <Button Content="Annuler" Margin="2" />
+        </StackPanel>
+
+
+    </Grid>
+</Window>
